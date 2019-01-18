@@ -8,6 +8,8 @@ class CreatePets < ActiveRecord::Migration[5.2]
       t.string :breed
       t.string :animal
       t.string :description
+      t.string :shelterId
+      t.string :photo
 
       t.timestamps
     end

@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 2019_01_17_220013) do
     t.string "breed"
     t.string "animal"
     t.string "description"
+    t.string "shelterId"
+    t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
