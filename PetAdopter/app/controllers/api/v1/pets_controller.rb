@@ -14,7 +14,7 @@ class Api::V1::PetsController < ApplicationController
 
 #POST api/v1/parties
   def create
-    @party = Party.create(party_params)
+    @pet = Party.create(pet_params)
     if @pet.valid?
       render json: @pet, status: :ok
     else
