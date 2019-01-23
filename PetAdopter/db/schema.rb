@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2019_01_23_205148) do
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "adopted", default: false
   end
 
   create_table "users", force: :cascade do |t|
