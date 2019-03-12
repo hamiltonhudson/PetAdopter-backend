@@ -22,9 +22,18 @@ class Api::V1::PetsController < ApplicationController
   end
 end
 
+def update
+  @pet = Pet.find(params[:id])
+  if @pet.update(pet_params)
+    render json: @pet, status: :ok
+  else
+    render json: @pet.errors.full_messages, status: :unprocessable_entity
+  end
+end
+
   private
   def pet_params
-    params.require(:pet).permit(:name, :age, :size, :sex, :breed, :animal, :description, :photo, :shelterId)
+    params.require(:pet).permit(:name, :age, :size, :sex, :breed, :animal, :description, :photo, :shelterId, :adopted, :owner_id)
   end
 
 
