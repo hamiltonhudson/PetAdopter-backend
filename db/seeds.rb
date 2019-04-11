@@ -65,5 +65,12 @@ parsed_data_animalCC["petfinder"]["pets"]["pet"].each do |pet|
   Pet.create!(name: pet["name"]["$t"], age: pet["age"]["$t"], size: pet["size"]["$t"], sex: pet["sex"]["$t"], description: pet["description"]["$t"], animal: pet["animal"]["$t"], breed: breed, shelterId:pet["shelterId"]["$t"],photo:photo)
 end
 
-User.create!(name: "Gabby", email: "gabllini@email.com" )
-User.create(name: "Hamilton", email: "hambam@email.com")
+# User.create!(name: "Gabby", username: "gabllini", password: "hellur")
+# User.create!(name: "Hamilton", username: "hambam", password: "howdy")
+# User.create!(name: "Athena", username: "theeny", password: "beans")
+
+
+
+User.create!(name: "Gabby", username: "gbellini90@gmail.com", password:"hi" )
+User.create(name: "Hamilton", username: "hambam@email.com",password:"hi")
+User.create(name:"HamGab", username:"hamgab@gmail.com",password:"hi")

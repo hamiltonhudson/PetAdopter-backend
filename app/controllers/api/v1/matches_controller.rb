@@ -1,4 +1,5 @@
 class Api::V1::MatchesController < ApplicationController
+  before_action :requires_login, only: [:create, :show, :index, :destroy]
 
   def index
     @matches = Match.all
