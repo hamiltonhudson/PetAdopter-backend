@@ -114,3 +114,4 @@ end
 User.create!(name: "Gabby", username: "gabllini", password: "hellur")
 User.create!(name: "Hamilton", username: "hambam", password: "howdy")
 User.create!(name: "Athena", username: "theeny", password: "beans")
+User.create!(name: "Eva", username: "bedeevies", password: "hi")
