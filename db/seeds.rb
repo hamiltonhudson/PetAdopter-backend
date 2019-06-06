@@ -18,19 +18,6 @@ API_KEY = ENV['API_KEY']
 
 DatabaseCleaner.clean_with(:truncation)
 
-# Stray from the Heart Shelter data
-sfth = RestClient.get("http://api.petfinder.com/shelter.getPets?key=#{API_KEY}&id=NY245&count=100&format=json")
-parsed_data_sfth = JSON.parse(sfth)
-
-parsed_data_sfth["petfinder"]["pets"]["pet"].each do |pet|
-  if pet["breeds"]["breed"][0]
-    breed = pet["breeds"]["breed"][0]["$t"]
-  else
-    breed = pet["breeds"]["breed"]["$t"]
-  end
-    photo = pet["media"]["photos"]["photo"].find{ |photo| photo["@size"] == "x" }["$t"]
-  Pet.create!(name: pet["name"]["$t"], age: pet["age"]["$t"], size: pet["size"]["$t"], sex: pet["sex"]["$t"], description: pet["description"]["$t"], animal: pet["animal"]["$t"], breed: breed, shelterId:pet["shelterId"]["$t"],photo:photo)
-end
 
 #Bideawee Shelter data
 bideawee = RestClient.get("http://api.petfinder.com/shelter.getPets?key=#{API_KEY}&id=NY479&count=100&count=100&format=json")
@@ -64,12 +51,11 @@ parsed_data_waggytail["petfinder"]["pets"]["pet"].each do |pet|
   Pet.create!(name: pet["name"]["$t"], age: pet["age"]["$t"], size: pet["size"]["$t"], sex: pet["sex"]["$t"], description: pet["description"]["$t"], animal: pet["animal"]["$t"], breed: breed, shelterId:pet["shelterId"]["$t"], photo: photo)
 end
 
-# Animal care Center of NYC data <-- changed to:
 # Brooklyn Animal Action data
-animalCC = RestClient.get("http://api.petfinder.com/shelter.getPets?key=#{API_KEY}&id=NY947&count=100&count=100&format=json")
-parsed_data_animalCC = JSON.parse(animalCC)
+bkanimalaction = RestClient.get("http://api.petfinder.com/shelter.getPets?key=#{API_KEY}&id=NY947&count=100&count=100&format=json")
+parsed_data_bkanimalaction = JSON.parse(bkanimalaction)
 
-parsed_data_animalCC["petfinder"]["pets"]["pet"].each do |pet|
+parsed_data_bkanimalaction["petfinder"]["pets"]["pet"].each do |pet|
   next if !pet["media"]["photos"]
   if pet["breeds"]["breed"][0]
     breed = pet["breeds"]["breed"][0]["$t"]
@@ -110,6 +96,7 @@ end
       photo = pet["media"]["photos"]["photo"].find{ |photo| photo["@size"] == "x" }["$t"]
     Pet.create!(name: pet["name"]["$t"], age: pet["age"]["$t"], size: pet["size"]["$t"], sex: pet["sex"]["$t"], description: pet["description"]["$t"], animal: pet["animal"]["$t"], breed: breed, shelterId: pet["shelterId"]["$t"], photo:photo)
   end
+
 
 User.create!(name: "Gabby", username: "gabllini", password: "hellur")
 User.create!(name: "Hamilton", username: "hambam", password: "howdy")
