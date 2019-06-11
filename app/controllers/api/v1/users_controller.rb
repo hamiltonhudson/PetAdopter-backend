@@ -33,26 +33,6 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
-#   def create
-#   @user = User.create(user_params)
-#   if @user.valid?
-#     @token = get_token(payload(@user.username, @user.id))
-#     render json: {
-#       username: @user.username,
-#       name:@user.name,
-#       pets:@user.pets,
-#       matches:@user.matches,
-#       pet_id: @user.pet_id,
-#       id: @user.id,
-#       token: get_token(payload(@user.username, @user.id))
-#     }, status: :created
-#   else
-#     render json: {
-#       errors: @user.errors.full_messages
-#     }, status: :unprocessable_entity
-#   end
-# end
-
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)

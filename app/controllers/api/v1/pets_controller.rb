@@ -11,6 +11,11 @@ class Api::V1::PetsController < ApplicationController
     render json: @pet, status: :ok
   end
 
+  def sample_fifty
+    @fifty_pets = Pet.all.map { |pet| pet.photo }.sample(50)
+    render json: @fifty_pets, status: :ok
+  end
+
   def create
     @pet = Pet.create(pet_params)
     if @pet.valid?
@@ -25,9 +30,7 @@ class Api::V1::PetsController < ApplicationController
     if @pet.update(pet_params)
       @pet.save
       @user = User.all.find{|user| user.id == @pet.owner_id}
-      # @user.adopted_pets.to_a.push(@pet).join(', ')
       @user.save
-      # @pets = @user.pets
       @pets = Pet.all
       render json: @pets, status: :ok
     else
