@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Pet Adopter is an app to view, save and adopt animals from local NYC shelters and adoption centers. Users can sign up and sign back in to view all available pets, with photos and details, and add pets to their “pet list”. When a user visits their pet list, they have the option to adopt any pets that they have added. If a user has a pet saved in their list and someone else adopts it, a user can obviously no longer adopt, but can remove that pet from their list, either from the main page or from their profile. Once a pet is adopted, there is no un-adopting — you are committing to save that animal! 👏🏼
+Pet Adopter is an app to view, save and adopt animals from local NYC shelters and adoption centers. Users can create an account to view all available pets, with photos and details, and add pets to their “pet list”. All information is saved and, using secure auth, can be viewed upon signing back in. When a user visits their pet list, they have the option to adopt any pets that they have added. If a user has a pet saved in their list and someone else adopts it, a user can obviously no longer adopt, but can remove that pet from their list, either from the main page or from their profile. Once a pet is adopted, there is no un-adopting — you are committing to save that animal! 👏🏼
 
 ## Technologies Used
 
@@ -11,7 +11,7 @@ React, Ruby on Rails (Rails API backend), Petfinder API, HTML, CSS, JSON, Semant
 ## Getting Started
 
 ### Prerequisites
-To use, clone down this repo and open with your preferred text editor. This project uses Ruby on Rails, so you’ll need to make sure you have both installed (if you don’t, visit this link for instructions: Digital Ocean: Install Ruby and Set Up Local Environment) as well as PostgreSQL as the database resource. 
+To use, clone down this repo and open with your preferred text editor. This project uses Ruby on Rails, so you’ll need to make sure you have both installed (if you don’t, visit this link for instructions: Digital Ocean: Install Ruby and Set Up Local Environment) as well as PostgreSQL as the database resource.
 
 Because the backend pulls data from the PetFinder API, you will also need to obtain an API key. Head to https://www.petfinder.com//developers/api-key to login or signup with account credentials and from there you’ll be able to request an API Key. It shouldn’t take long to receive an email containing your key, a few hours tops so keep an eye out.
 
@@ -30,7 +30,7 @@ to facilitate backend set up. You can then:
 
 `rails c`
 
-and jump into the console to test out that tables and relationships were established correctly, that class instances can be created and related successfully, etc. To successfully hide your API Key, create a .env file and save your key as: 
+and jump into the console to test out that tables and relationships were established correctly, that class instances can be created and related successfully, etc. To successfully hide your API Key, create a .env file and save your key as:
 
 `API_KEY=your-api-key-goes-here`
 
@@ -38,7 +38,7 @@ For further information, the full dotenv-rails documentation can be found here: 
 
 `rails db:seed`
 
-to create a list of adoptable pets. If the development database is running correctly, then the seed data should be successfully created and final step is to test the server. To activate it, run: 
+to create a list of adoptable pets. If the development database is running correctly, then the seed data should be successfully created and final step is to test the server. To activate it, run:
 
 `rails s`
 
@@ -50,7 +50,7 @@ and once the terminal says it’s running, navigate to http://localhost:3000. If
 
 ## Demo Video
 
-[PetAdopter.mov](https://drive.google.com/open?id=1D7FHcEtkCZXcCac5FGkyiHY7tLE1dS-v)
+[PetAdopter.mov](https://drive.google.com/file/d/1Uv42tjWT18f5gdEHC0zDuv6SKBtRbmPU/view?usp=sharing)
 
 ## Authors
 
@@ -72,4 +72,3 @@ and once the terminal says it’s running, navigate to http://localhost:3000. If
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](/LICENSE) file for details.
-
